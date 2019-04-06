@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UPDATE POST</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
+        <link rel="stylesheet" href="css/form.css" >
+        <link href="css/default.css" rel="stylesheet" type="text/css"
+	media="all" ></link>
+<link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" ></link>
+        
+    </head>
+    <body >
+     <div id="header" class="container">
+		<div id="logo">
+			<h1>
+				<a href="#">Company - 7</a>
+			</h1>
+		</div>
+		 <div id="menu">
+			<ul>
+				<li><a th:href="@{/home}" accesskey="1" title="">Home</a></li>
+				<li><a th:href="@{/makePost}" accesskey="3" title="">Post</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="page">
+        <div class="container">
+            <div class="form-container">
+                <h1>
+                    UPDATE POST
+                </h1>
+                <form th:action="@{/updatePost}" th:object="${updatepost}" method="POST" id="reused_form" >
+				    <label for="name">Post Id:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{postId}" readonly="readonly">
+					<label for="name">User Id:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{userId}" readonly="readonly">
+                    <label for="name">Title:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{title}">
+					<label for="message">Content:</label>
+                    <textarea id="message" name="Message" th:field="*{content}" rows="10" maxlength="6000" required></textarea>
+					<label for="name">Privacy:</label>
+					<select id="name" th:field="*{privacy}">
+						<option value="public">Public</option>
+			            <option value="followers">FollowersOnly</option>
+			            <option value="companies">CompaniesOnly</option>
+		            </select>
+					<label for="name">Field:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{field}">
+					<label for="name">Number Of Votes Up:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{numOfVotesUp}" readonly="readonly">
+					<label for="name">Number Of Votes Down:</label>
+                    <input id="name" type="text" name="Name" required maxlength="50" th:field="*{numOfVotesDown}" readonly="readonly">
+                    
+                    <button class="button-primary" type="submit" >Update</button>
+                </form>
+                	<div  align="center" th:text="${updateresult}"Style="color: #0F0;"></div>
+            </div>
+        </div>
+        </div>
+            <div id="copyright" class="container">
+		<p>Copyright (c) 2019 Company 7 :") | Thank you for visiting
+			us.</p>
+	</div>
+    </body>
+</html>
