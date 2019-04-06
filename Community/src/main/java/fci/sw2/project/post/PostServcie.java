@@ -53,4 +53,19 @@ public class PostService {
 			postRepo.deleteById(postId);
 		}
 	}
+	public List<Post> getAllPostsByUserId(String userId)
+	{ 
+		List<Post> allPosts=new ArrayList<Post>();
+		List<Post> filtered=new ArrayList<Post>();
+		postRepo.findAll().forEach(allPosts::add);
+		for(int i=0 ; i<allPosts.size(); i++)
+		{
+			if(allPosts.get(i).getUserId().equals(userId))
+			{
+				filtered.add(allPosts.get(i));
+			}
+		}
+		
+		return filtered;
+	}
 }
