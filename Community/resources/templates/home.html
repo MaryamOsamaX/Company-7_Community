@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>HOME</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900"
+	rel="stylesheet" ></link>
+<link href="css/default.css" rel="stylesheet" type="text/css"
+	media="all" ></link>
+<link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" ></link>
+
+</head>
+<body>
+	<div id="header" class="container">
+		<div id="logo">
+			<h1>
+				<a href="#">Company - 7</a>
+			</h1>
+		</div>
+		 <div id="menu">
+			<ul>
+				<li><a th:href="@{/home}" accesskey="1" title="">Home</a></li>
+				<li><a th:href="@{/makePost}" accesskey="3" title="">Post</a></li>
+			</ul>
+		</div>
+	</div>
+	  <div id="page">
+		<div class="container">
+			 <div  th:each="post : ${myposts}">
+				<div class="box">
+				 <h3>Title</h3>
+				 <div th:text="${post.title}"></div>
+				 <h3>Field</h3>
+				 <div th:text="${post.field}"></div>
+				 <h3>Privacy</h3>
+				 <div th:text="${post.privacy}"></div>
+				 <h3>Content</h3>
+				<div class="details" th:text="${post.content}"> </div>
+				
+				 <a th:href="@{/updatePost?id=__${post.postId}__}" class="button">Update</a> 
+				 <a th:href="@{/deletePost?id=__${post.postId}__}" class="button">Delete</a> 
+				 
+				 </div>
+		</div>
+		</div></div>
+
+
+
+	
+
+	<div id="copyright" class="container">
+		<p>Copyright (c) 2019 Company 7 :") | Thank you for visiting
+			us.</p>
+	</div>
+</body>
+</html>
