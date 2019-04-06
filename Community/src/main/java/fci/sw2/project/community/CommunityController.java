@@ -40,25 +40,4 @@ public class CommunityController {
 		model.addAttribute("message", "Posted Successfully!");
 		
 	}
-	@RequestMapping(method = RequestMethod.GET, value = { "/updatePost" })
-	public String updatePostView(HttpServletRequest request, Model model) {
-		String postId = request.getParameter("id");
-		Post r = postService.getPostById(postId);
-		model.addAttribute("updatepost", r);
-		return "updatePost";
-	}
-	
-	@RequestMapping(method = RequestMethod.POST, value = "/updatePost")
-	public void updatePost(Model model, @ModelAttribute("updatepost") Post postData)
-	{
-		postService.updatePost(postData);
-		model.addAttribute("updateresult", "Updated Successfully!");
-	}
-	@RequestMapping(method = RequestMethod.GET, value = { "/deletePost" })
-	public String delete(HttpServletRequest request, Model model) {
-		String postId = request.getParameter("id");
-		postService.deletePost(postId);
-
-		return "redirect:/home";
-	}
 }

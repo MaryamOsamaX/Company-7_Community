@@ -28,28 +28,4 @@ public class PostService {
 		p.setPostId(String.valueOf(id));
 		id++;
 	}
-	public Post getPostById(String id)
-	{
-		Post post = new Post();
-		if (postRepo.findById(id).isPresent()) {
-			post = postRepo.findById(id).get();
-			return post;
-		} else {
-			return null;
-		}
-	}
-
-	public void updatePost(Post post) {
-		if (postRepo.findById(post.getPostId()).isPresent()) {
-
-			postRepo.save(post);
-		}
-	}
-	
-	public void deletePost(String postId) {
-		if (postRepo.findById(postId).isPresent()) {
-
-			postRepo.deleteById(postId);
-		}
-	}
 }
