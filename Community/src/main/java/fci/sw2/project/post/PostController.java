@@ -1,4 +1,5 @@
-package fci.sw2.project.community;
+package fci.sw2.project.post;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import fci.sw2.project.post.PostService;
 
 
 @Controller
-public class CommunityController {
+public class PostController {
 	
 	@Autowired
 	private PostService postService;
@@ -62,6 +63,7 @@ public class CommunityController {
 		
 		return "home";
 	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = { "/deletePost" })
 	public String delete(HttpServletRequest request, Model model) {
 		String postId = request.getParameter("id");
@@ -69,4 +71,6 @@ public class CommunityController {
 
 		return "redirect:/home";
 	}
+	
+
 }
