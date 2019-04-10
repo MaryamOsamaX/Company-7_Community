@@ -14,7 +14,7 @@ import fci.sw2.project.post.PostService;
 
 
 @Controller
-public class CommunityController {
+public class PostController {
 	
 	@Autowired
 	private PostService postService;
