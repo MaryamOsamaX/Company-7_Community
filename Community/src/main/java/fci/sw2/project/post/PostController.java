@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import fci.sw2.project.post.Post;
-import fci.sw2.project.post.PostService;
 
 
 @Controller
@@ -63,7 +61,7 @@ public class PostController {
 		
 		return "home";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = { "/deletePost" })
 	public String delete(HttpServletRequest request, Model model) {
 		String postId = request.getParameter("id");
@@ -71,6 +69,5 @@ public class PostController {
 
 		return "redirect:/home";
 	}
-	
 
 }
