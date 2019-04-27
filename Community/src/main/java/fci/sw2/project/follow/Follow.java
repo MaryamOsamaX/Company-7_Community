@@ -1,13 +1,14 @@
 package fci.sw2.project.follow;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
+import javax.persistence.*;
+
 
 
 @Entity
 public class Follow {
-	private Fkey key;
 	@EmbeddedId
+	private Fkey key;
+	
 	public Fkey getKey() {
 		return key;
 	}

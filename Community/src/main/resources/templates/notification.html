@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>Comments</title>
+<title>My Notification</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link
@@ -33,19 +33,17 @@
 	 
 		<div class="container">
 		
-			 <div  th:each="comment : ${mycomments}">
+			 <div  th:each="n : ${notify}">
 				<div class="box">
-				 <h3>Content</h3>
-				 <div th:text="${comment.content}"></div>
+				 
+				 <div th:text="${n.creator}"></div>
+				 Have a new Post 
+				 <a th:href="@{/getPost?id=__${n.postId}__}" class="button">SHOW</a>
+				 
 			
 				
 		</div>
 		</div>
-     <form th:action="@{/showComments?id=__${savePostId}__}" th:object="${commentdata}" method="POST" id="reused_form">
-	  <label for="message">New Comment:</label>
-      <textarea id="message" name="Message" th:field="*{content}" rows="5"  colomuns="15" maxlength="10000" required></textarea>
-	  <input type="Submit" value="OK">
-	  </form>
 		</div>
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>Comments</title>
+<title>Post</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link
@@ -10,7 +10,7 @@
 	rel="stylesheet" ></link>
 <link href="css/default.css" rel="stylesheet" type="text/css"
 	media="all" ></link>
-
+<link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" ></link>
 
 </head>
 <body>
@@ -25,31 +25,32 @@
 				<li><a th:href="@{/home}" accesskey="1" title="">Home</a></li>
 				<li><a th:href="@{/makePost}" accesskey="3" title="">Post</a></li>
 				<li><a th:href="@{/notification}" accesskey="3" title="">Notifications</a></li>
-				
 			</ul>
 		</div>
 	</div>
 	  <div id="page">
-	 
-		<div class="container">
-		
-			 <div  th:each="comment : ${mycomments}">
+		<div class="container" >
+		<form th:object="${post}" >
+			 <div >
 				<div class="box">
+				 <h3>Title</h3>
+				 <div th:text="${post.title}"></div>
+				 <h3>Field</h3>
+				 <div th:text="${post.field}"></div>
+				 <h3>Privacy</h3>
+				 <div th:text="${post.privacy}"></div> 
 				 <h3>Content</h3>
-				 <div th:text="${comment.content}"></div>
-			
+				<div class="details" th:text="${post.content}"> </div>
 				
+				
+				 <a th:href="@{/showComments?id=__${post.postId}__}" class="button">showComments</a>
+				 </div>
 		</div>
-		</div>
-     <form th:action="@{/showComments?id=__${savePostId}__}" th:object="${commentdata}" method="POST" id="reused_form">
-	  <label for="message">New Comment:</label>
-      <textarea id="message" name="Message" th:field="*{content}" rows="5"  colomuns="15" maxlength="10000" required></textarea>
-	  <input type="Submit" value="OK">
-	  </form>
-		</div>
+		</form>
+		</div></div>
 
 
-</div>
+
 	
 
 	<div id="copyright" class="container">
