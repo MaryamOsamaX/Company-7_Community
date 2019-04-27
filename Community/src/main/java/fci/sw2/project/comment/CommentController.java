@@ -29,7 +29,7 @@ public class CommentController {
 		model.addAttribute("mycomments", myComments);
 		model.addAttribute("commentdata", c);
 		model.addAttribute("savePostId", postId);
-		System.out.println("# "+postId);
+		//System.out.println("# "+postId);
 		return "showComments";
 	}
 
