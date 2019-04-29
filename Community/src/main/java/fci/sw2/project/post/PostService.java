@@ -12,11 +12,13 @@ public class PostService {
 	@Autowired
 	private PostRepository postRepo;
 	
-	public void makePost(Post post) {
+	public Post makePost(Post post) {
 		if (!postRepo.findById(post.getPostId()).isPresent()) {
 			postRepo.save(post);
+			return post;
 			
 		}
+		return null;
 	}
 	public void initialId(Post p)
 	{
@@ -40,11 +42,13 @@ public class PostService {
 		}
 	}
 
-	public void updatePost(Post post) {
+	public Boolean updatePost(Post post) {
 		if (postRepo.findById(post.getPostId()).isPresent()) {
 
 			postRepo.save(post);
+			return true;
 		}
+		return false;
 	}
 	
 	public void deletePost(String postId) {
@@ -55,16 +59,10 @@ public class PostService {
 	}
 	public List<Post> getAllPostsByUserId(String userId)
 	{ 
-		List<Post> allPosts=new ArrayList<Post>();
+		
 		List<Post> filtered=new ArrayList<Post>();
-		postRepo.findAll().forEach(allPosts::add);
-		for(int i=0 ; i<allPosts.size(); i++)
-		{
-			if(allPosts.get(i).getUserId().equals(userId))
-			{
-				filtered.add(allPosts.get(i));
-			}
-		}
+		filtered=postRepo.findAllByUserId(userId);
+	
 		
 		return filtered;
 	}

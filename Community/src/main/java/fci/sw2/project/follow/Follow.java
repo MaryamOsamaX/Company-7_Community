@@ -9,6 +9,12 @@ public class Follow {
 	@EmbeddedId
 	private Fkey key;
 	
+	public Follow(){}
+	public Follow(Fkey key) {
+		super();
+		this.key = key;
+	}
+
 	public Fkey getKey() {
 		return key;
 	}
