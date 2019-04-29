@@ -14,16 +14,16 @@ public class FollowService {
 	@Autowired
 	private FollowRepository followRepo;
 	
-	public boolean follow(Fkey key)
+	public Follow follow(Fkey key)
 	{
 		if(!followRepo.findById(key).isPresent())
 		{
 			 Follow v=new Follow();
 			 v.setKey(key);
 		     followRepo.save(v);
-		     return true;
+		     return v;
 		}
-		return false;
+		return null;
 	}
 	public boolean unFollow(Fkey key)
 	{

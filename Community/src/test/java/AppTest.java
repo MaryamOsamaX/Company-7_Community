@@ -1,4 +1,4 @@
-package Company7.Community;
+
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -7,6 +7,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Fkey implements Serializable {
 	private String followerId,followedId;
+	
+	public Fkey(){}
+	public Fkey(String followerId, String followedId) {
+		super();
+		this.followerId = followerId;
+		this.followedId = followedId;
+	}
 	public String getFollowerId() {
 		return followerId;
 	}

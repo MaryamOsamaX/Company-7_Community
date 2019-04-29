@@ -14,6 +14,19 @@ public class Post {
 	public void setPostId(String postId) {
 		this.postId = postId;
 	}
+	public Post(){}
+	public Post(String postId, String userId, String title, String content, String privacy, String field,
+			int numOfVotesUp, int numOfVotesDown) {
+		super();
+		this.postId = postId;
+		this.userId = userId;
+		this.title = title;
+		this.content = content;
+		this.privacy = privacy;
+		this.field = field;
+		this.numOfVotesUp = numOfVotesUp;
+		this.numOfVotesDown = numOfVotesDown;
+	}
 	public String getUserId() {
 		return userId;
 	}

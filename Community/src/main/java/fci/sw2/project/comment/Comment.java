@@ -7,6 +7,16 @@ import javax.persistence.Id;
 public class Comment {
 	private String postId , userId , commentId , content;
 	
+	public Comment(){}
+
+	public Comment(String postId, String userId, String commentId, String content) {
+		super();
+		this.postId = postId;
+		this.userId = userId;
+		this.commentId = commentId;
+		this.content = content;
+	}
+
 	@Id
 	public String getCommentId() {
 		return commentId;
@@ -40,4 +50,8 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	  @Override
+	    public String toString() { 
+	        return String.format(postId+" "+userId+" "+commentId+" "+content); 
+	    } 
 }

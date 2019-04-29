@@ -13,10 +13,12 @@ public class CommentService {
 	@Autowired
 	private CommentRepository commentRepo;
 
-	public void makeComment(Comment c) {
+	public Comment makeComment(Comment c) {
 		if (!commentRepo.findById(c.getCommentId()).isPresent()) {
 			commentRepo.save(c);
+			return c;
 		}
+		return null;
 	}
 	public void initialId(Comment c)
 	{
@@ -40,38 +42,27 @@ public class CommentService {
 		}
 	}
 
-	public void updateComment(Comment comment) {
-		if (commentRepo.findById(comment.getPostId()).isPresent()) {
+	/*public Comment updateComment(Comment comment) {
+		if (commentRepo.findById(comment.getCommentId()).isPresent()) {
 
 			commentRepo.save(comment);
+			return comment;
 		}
+		return null;
 	}
 	
-	public void deleteComment(String commentId) {
+	public Boolean deleteComment(String commentId) {
 		if (commentRepo.findById(commentId).isPresent()) {
 
 			commentRepo.deleteById(commentId);
+			return true;
 		}
-	}
+		return false;
+	}*/
 	public List<Comment> getAllCommentsForPost(String postId)
 	{ 
-		
-		List<Comment> allComments=new ArrayList<Comment>();
 		List<Comment> filtered=new ArrayList<Comment>();
-		commentRepo.findAll().forEach(allComments::add);
-		if(allComments.size()==0){
-			//System.out.println("FOUNNNND"); 
-		}
-		for(int i=0 ; i<allComments.size(); i++) 
-		{
-			//System.out.println(allComments.get(i).getPostId());
-			if(allComments.get(i).getPostId().equals(postId))
-			{
-				//System.out.println("**YES");
-				filtered.add(allComments.get(i));
-			}
-		}
-		
+		filtered=commentRepo.findAllByPostId(postId);
 		return filtered;
 	}
 	
