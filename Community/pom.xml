@@ -89,6 +89,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>tryproject</finalName>
 	</build>
 	<repositories>
 		<repository>
@@ -132,5 +133,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+	
 </project>
