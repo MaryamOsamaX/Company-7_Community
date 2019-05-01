@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fci.sw2.project.post.Post;
-import fci.sw2.project.post.PostRepository;
 import fci.sw2.project.post.PostService;
 
 @Service
@@ -19,12 +18,13 @@ public class VoteService {
 	
 	public boolean votePost(Key key, String type)
 	{
-		if(!voteRepo.findById(key).isPresent())
+		if(!voteRepo.findById(key).isPresent()) 
 		{
+			try{
 			Post p=new Post();
 			Vote v=new Vote();
 			v.setKey(key);
-			p=postService.getPostById(key.getPostId());
+		 	p=postService.getPostById(key.getPostId());
 			if(type.equals("up"))
 			{
 				p.setNumOfVotesUp(p.getNumOfVotesUp()+1);
@@ -40,6 +40,7 @@ public class VoteService {
 		     voteRepo.save(v);
 		     return true;
 		}
+		catch(Exception e){}}
 		return false;
 	}
 	

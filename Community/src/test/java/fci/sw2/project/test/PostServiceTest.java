@@ -26,7 +26,7 @@ import fci.sw2.project.post.*;
 public class PostServiceTest {
 	
 	@InjectMocks
-	private PostService ps;
+	private PostService ps; 
 	
 	@Mock
      PostRepository prMock;
@@ -74,8 +74,8 @@ public class PostServiceTest {
 	    when(prMock.update(c)).thenReturn(true);
 		assertEquals(true , ps.updatePost(c));	
 		
-	}
-	*/
+	}*/
+	
 	
 
 	

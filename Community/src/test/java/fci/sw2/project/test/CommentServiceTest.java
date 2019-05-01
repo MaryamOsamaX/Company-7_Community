@@ -51,11 +51,9 @@ public class CommentServiceTest {
 		exc.expect(NoSuchElementException.class);
 		Comment c = new Comment("0", "z", "0", "content1");
 		when(crMock.findById(commentId).get()).thenReturn(c);
-		// System.out.println(c.toString() +"
-		// "+cS.getCommentById(commentId).toString());
 		assertEquals(c, cS.getCommentById(commentId));
 
-	}
+	} 
 
 	@Test
 	public void makeComment() {

@@ -62,8 +62,6 @@ public class PostService {
 		
 		List<Post> filtered=new ArrayList<Post>();
 		filtered=postRepo.findAllByUserId(userId);
-	
-		
 		return filtered;
 	}
 	

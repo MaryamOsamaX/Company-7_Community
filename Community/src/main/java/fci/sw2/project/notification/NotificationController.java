@@ -25,7 +25,7 @@ public class NotificationController {
 	public String showNotifications( Model model) {
 		List<Notification> myNotifications = new ArrayList<Notification>();
 		
-		myNotifications=notifyService.getAllPostsByUserId("init");
+		myNotifications=notifyService.getAllNotificationsByUserId("init");
 		
 		model.addAttribute("notify", myNotifications);
 		

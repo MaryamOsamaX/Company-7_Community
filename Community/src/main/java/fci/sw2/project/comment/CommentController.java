@@ -35,7 +35,7 @@ public class CommentController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/showComments") 
 	public String makeComment(HttpServletRequest request,Model model, @ModelAttribute("commentdata") Comment commentData) {
-		List<Comment> myComments = new ArrayList<Comment>();
+	//	List<Comment> myComments = new ArrayList<Comment>();
 		if (commentData != null) {
 			     String postId = request.getParameter("id");
 			     

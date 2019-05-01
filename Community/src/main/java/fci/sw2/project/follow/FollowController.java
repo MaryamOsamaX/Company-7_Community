@@ -3,6 +3,7 @@ package fci.sw2.project.follow;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class FollowController {
 			Fkey key=new Fkey();
 			key.setFollowerId(ferId);
 			key.setFollowedId(fedId);
-			followService.follow(key);
+			followService.follow(key); 
 		}
 		return "redirect:/home";
 	}

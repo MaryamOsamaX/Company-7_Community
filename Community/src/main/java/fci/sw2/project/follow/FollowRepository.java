@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FollowRepository extends CrudRepository<Follow, Fkey>{
 
-	List<Follow> findAllByFollowerId(String followerId);
-	List<Follow> findAllByFollowedId(String followedId);
+	List<Follow> findAllByKeyFollowerId(String followerId);
+	List<Follow> findAllByKeyFollowedId(String followedId);
+    // Follow deleteByKey(Fkey k);
 }

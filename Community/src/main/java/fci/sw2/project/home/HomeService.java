@@ -19,7 +19,7 @@ public class HomeService {
 	{
 		List<Post> all=new ArrayList<Post>();
 		List<Post> filtered=new ArrayList<Post>();
-		List<String> followed=new ArrayList<String>();
+		List<Follow> followed=new ArrayList<Follow>();
 		///add my posts
         filtered.addAll(postService.getAllPostsByUserId(myId));
 		///Get all the followed for me
@@ -27,7 +27,7 @@ public class HomeService {
 		///Get all posts for followed people
 		for(int i=0 ; i<followed.size() ; i++)
 		{
-			all.addAll(postService.getAllPostsByUserId(followed.get(i)));
+			all.addAll(postService.getAllPostsByUserId(followed.get(i).getKey().getFollowedId()));
 		}
 		///filter posts by privacy
 		for(int i=0 ; i<all.size();i++)

@@ -2,8 +2,6 @@ package fci.sw2.project.follow;
 
 import javax.persistence.*;
 
-
-
 @Entity
 public class Follow {
 	@EmbeddedId
@@ -22,5 +20,9 @@ public class Follow {
 	public void setKey(Fkey key) {
 		this.key = key;
 	}
+	  @Override
+	    public String toString() { 
+	        return String.format(key.getFollowedId()+" "+key.getFollowerId()); 
+	    } 
 
 }

@@ -10,42 +10,62 @@ public class Notification {
 	private String creator;
 	private String postId;
 	private long date;
+
 	@Id
 	public String getNotificationId() {
 		return notificationId;
 	}
+
 	public void setNotificationId(String notificationId) {
 		this.notificationId = notificationId;
 	}
+
 	public String getFollowerId() {
 		return followerId;
 	}
+
 	public void setFollowerId(String followerId) {
 		this.followerId = followerId;
 	}
-	
+
 	public String getCreator() {
 		return creator;
 	}
+
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
+
 	public String getPostId() {
 		return postId;
 	}
+
 	public void setPostId(String postId) {
 		this.postId = postId;
-	} 
+	}
+
 	public long getDate() {
 		return date;
 	}
-/*	public void setDate(long date) {
-		this.date = date;
-	}*/
-	public void setDate(long currentTimeMillis) {
+
+	/*
+	 * public void setDate(long date) { this.date = date; }
+	 */
+	public void setDate(long currentTimeMillis) { 
 		this.date = currentTimeMillis;
-		
+
 	}
-	
-	
+
+	public Notification() {
+	}
+
+	public Notification(String notificationId, String followerId, String creator, String postId, long date) {
+		super();
+		this.notificationId = notificationId;
+		this.followerId = followerId;
+		this.creator = creator;
+		this.postId = postId;
+		this.date = date;
+	}
+
 }

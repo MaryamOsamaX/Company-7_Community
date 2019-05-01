@@ -8,6 +8,14 @@ import javax.persistence.Embeddable;
 public class Key implements Serializable{
 	private String  postId , userId;
 
+	
+	public Key(){}
+	public Key(String postId, String userId) {
+		super();
+		this.postId = postId;
+		this.userId = userId;
+	}
+
 	public String getPostId() {
 		return postId;
 	}
@@ -24,5 +32,5 @@ public class Key implements Serializable{
 		this.userId = userId;
 	}
 	
-
+ 
 }
