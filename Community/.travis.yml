@@ -4,3 +4,7 @@ jdk: oraclejdk8
 
 script: 
    - mvn clean install -B
+   
+chache: bunbler
+
+sudo: false
