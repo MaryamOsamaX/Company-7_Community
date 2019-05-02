@@ -1,7 +1,6 @@
 language: java
 
-jdk: 
-   - openjdk8
+jdk: oraclejdk8
 
 script: 
-   - mvn clean verify
+   - mvn clean install -B
